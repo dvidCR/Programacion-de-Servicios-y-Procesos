@@ -1,6 +1,10 @@
 package cliente_servidor;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -49,7 +53,7 @@ public class Servidor {
         salida.close();
         socket.close();
         serverSocket.close();
-        System.out.println("Conexion cerrada.");
+        System.out.println("Conexion cerrada");
     }
 
     public static void main(String[] args) {

@@ -1,24 +1,28 @@
 package cliente_servidor;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class Cliente {
-    private String host;
+    private String servidor;
     private int puerto;
     private Socket socket;
     private BufferedReader entrada;
     private BufferedWriter salida;
 
-    public Cliente(String host, int puerto) {
-        this.host = host;
+    public Cliente(String servidor, int puerto) {
+        this.servidor = servidor;
         this.puerto = puerto;
     }
 
     public void conectar() {
         try {
-            socket = new Socket(host, puerto);
+            socket = new Socket(servidor, puerto);
             entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             salida = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
@@ -59,7 +63,7 @@ public class Cliente {
         salida.close();
         entrada.close();
         socket.close();
-        System.out.println("Conexion cerrada.");
+        System.out.println("Conexion cerrada");
     }
 
     public static void main(String[] args) {
