@@ -67,7 +67,7 @@ public class Cliente {
     }
 
     public static void main(String[] args) {
-        Cliente cliente = new Cliente("localhost", 3000);
+        Cliente cliente = new Cliente("localhost", 8080);
         cliente.conectar();
     }
 }
