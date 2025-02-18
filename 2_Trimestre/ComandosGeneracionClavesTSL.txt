@@ -1,0 +1,13 @@
+1. Generar la clave y el almacén para el servidor:
+keytool -genkeypair -keyalg RSA -alias servidor -keystore clavesservidor -storepass 12345
+ 
+Exportar el certificado del servidor:
+keytool -exportcert -alias servidor -file servidor.cer -keystore clavesservidor -storepass 123456
+ 
+ 
+3. Crear un almacén de claves para el cliente:
+keytool -genkeypair -keyalg RSA -alias cliente -keystore clavescliente -storepass 123456 -keypass 123456 -validity 365
+ 
+ 
+4. Importar el certificado del servidor en el almacén del cliente:
+keytool -importcert -trustcacerts -alias servidor -file servidor.cer -keystore clavescliente -storepass 123456 -noprompt
